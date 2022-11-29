@@ -10,7 +10,7 @@ func main() {
 }
 
 func Assignment1() {
-	strings := filereader.ReadFile("../Datafiles/day01.txt")
+	strings := filereader.ReadFile("../Datafiles/day02.txt")
 	for _, s := range strings {
 		fmt.Println(s)
 	}
