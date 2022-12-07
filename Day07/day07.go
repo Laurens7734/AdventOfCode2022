@@ -79,7 +79,7 @@ func createFolderStructure(input []string) {
 					filesize:   0,
 					parrent:    currentfolder.path,
 				}
-				currentfolder.subfolders = AppendString(currentfolder.subfolders, newfolder.path)
+				currentfolder.subfolders = utils.AppendSlice(currentfolder.subfolders, newfolder.path)
 				folders[newfolder.path] = newfolder
 			} else {
 				fsize, _ := strconv.ParseInt(strings.Fields(line)[0], 0, 64)
@@ -108,17 +108,4 @@ func processCommand(command string, currentfolder Folder) Folder {
 	} else {
 		return folders[currentfolder.path+"/"+direction]
 	}
-}
-
-func AppendString(slice []string, data string) []string {
-	m := len(slice)
-	n := m + 1
-	if n > cap(slice) {
-		newSlice := make([]string, n)
-		copy(newSlice, slice)
-		slice = newSlice
-	}
-	slice = slice[0:n]
-	slice[m] = data
-	return slice
 }

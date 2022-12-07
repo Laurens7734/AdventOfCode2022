@@ -25,7 +25,7 @@ func Assignment1(input []string) {
 			positions := getCrates(line)
 			for _, crate := range positions {
 				for len(stacks) <= crate.position {
-					stacks = AppendString(stacks, "")
+					stacks = utils.AppendSlice(stacks, "")
 				}
 				stacks[crate.position] = string(crate.char) + stacks[crate.position]
 			}
@@ -53,7 +53,7 @@ func Assignment2(input []string) {
 			positions := getCrates(line)
 			for _, crate := range positions {
 				for len(stacks) <= crate.position {
-					stacks = AppendString(stacks, "")
+					stacks = utils.AppendSlice(stacks, "")
 				}
 				stacks[crate.position] = string(crate.char) + stacks[crate.position]
 			}
@@ -87,7 +87,7 @@ func getCrates(input string) []CratePosition {
 		newPosition := CratePosition{
 			position: currentposition,
 			char:     crate[1]}
-		result = AppendCratePosition(result, newPosition)
+		result = utils.AppendSlice(result, newPosition)
 		currentposition += 1
 	}
 	return result
@@ -99,30 +99,4 @@ func getNumbers(input string) (int, int, int) {
 	from, _ := strconv.ParseInt(parts[3], 0, 64)
 	to, _ := strconv.ParseInt(parts[5], 0, 64)
 	return int(amount), int(from) - 1, int(to) - 1
-}
-
-func AppendCratePosition(slice []CratePosition, data CratePosition) []CratePosition {
-	m := len(slice)
-	n := m + 1
-	if n > cap(slice) {
-		newSlice := make([]CratePosition, (n+1)*2)
-		copy(newSlice, slice)
-		slice = newSlice
-	}
-	slice = slice[0:n]
-	slice[m] = data
-	return slice
-}
-
-func AppendString(slice []string, data string) []string {
-	m := len(slice)
-	n := m + 1
-	if n > cap(slice) {
-		newSlice := make([]string, n)
-		copy(newSlice, slice)
-		slice = newSlice
-	}
-	slice = slice[0:n]
-	slice[m] = data
-	return slice
 }
