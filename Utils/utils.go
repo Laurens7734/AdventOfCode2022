@@ -1,4 +1,4 @@
-package filereader
+package utils
 
 import (
 	"bufio"
@@ -15,16 +15,16 @@ func ReadFile(location string) []string {
 	scanner := bufio.NewScanner(f)
 	var content []string
 	for scanner.Scan() {
-		content = AppendString(content, scanner.Text())
+		content = AppendSlice(content, scanner.Text())
 	}
 	return content
 }
 
-func AppendString(slice []string, data string) []string {
+func AppendSlice[K any](slice []K, data K) []K {
 	m := len(slice)
 	n := m + 1
 	if n > cap(slice) {
-		newSlice := make([]string, (n+1)*2)
+		newSlice := make([]K, n)
 		copy(newSlice, slice)
 		slice = newSlice
 	}

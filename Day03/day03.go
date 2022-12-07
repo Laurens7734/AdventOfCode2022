@@ -1,13 +1,13 @@
 package main
 
 import (
-	"adventofcode2022/filereader"
+	"adventofcode2022/utils"
 	"fmt"
 	"strings"
 )
 
 func main() {
-	input := filereader.ReadFile("../Datafiles/day03.txt")
+	input := utils.ReadFile("../Datafiles/day03.txt")
 	Assignment1(input)
 	Assignment2(input)
 }

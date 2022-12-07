@@ -1,14 +1,14 @@
 package main
 
 import (
-	"adventofcode2022/filereader"
+	"adventofcode2022/utils"
 	"fmt"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	input := filereader.ReadFile("../Datafiles/day07.txt")
+	input := utils.ReadFile("../Datafiles/day07.txt")
 	createFolderStructure(input)
 	calculateFilesizes("/")
 	Assignment1()

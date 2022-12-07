@@ -1,7 +1,6 @@
 package main
 
 import (
-	"adventofcode2022/filereader"
 	"fmt"
 	"strconv"
 )
@@ -14,7 +13,7 @@ func main() {
 func Assignment1() {
 	max := int64(0)
 	cur := int64(0)
-	for _, s := range filereader.ReadFile("../Datafiles/day01.txt") {
+	for _, s := range utils.ReadFile("../Datafiles/day01.txt") {
 		if s != "" {
 			num, _ := strconv.ParseInt(s, 0, 64)
 			cur += num
@@ -33,7 +32,7 @@ func Assignment2() {
 	max2 := int64(0)
 	max3 := int64(0)
 	cur := int64(0)
-	for _, s := range filereader.ReadFile("../Datafiles/day01.txt") {
+	for _, s := range utils.ReadFile("../Datafiles/day01.txt") {
 		if s != "" {
 			num, _ := strconv.ParseInt(s, 0, 64)
 			cur += num
