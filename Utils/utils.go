@@ -32,3 +32,19 @@ func AppendSlice[K any](slice []K, data K) []K {
 	slice[m] = data
 	return slice
 }
+
+func Contains[K comparable](slice []K, item K) bool {
+	for _, ob := range slice {
+		if ob == item {
+			return true
+		}
+	}
+	return false
+}
+
+func Abs(input int) int {
+	if input < 0 {
+		return -input
+	}
+	return input
+}
