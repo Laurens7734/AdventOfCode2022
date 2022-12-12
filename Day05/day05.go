@@ -25,7 +25,7 @@ func Assignment1(input []string) {
 			positions := getCrates(line)
 			for _, crate := range positions {
 				for len(stacks) <= crate.position {
-					stacks = utils.AppendSlice(stacks, "")
+					stacks = append(stacks, "")
 				}
 				stacks[crate.position] = string(crate.char) + stacks[crate.position]
 			}
@@ -53,7 +53,7 @@ func Assignment2(input []string) {
 			positions := getCrates(line)
 			for _, crate := range positions {
 				for len(stacks) <= crate.position {
-					stacks = utils.AppendSlice(stacks, "")
+					stacks = append(stacks, "")
 				}
 				stacks[crate.position] = string(crate.char) + stacks[crate.position]
 			}
@@ -87,7 +87,7 @@ func getCrates(input string) []CratePosition {
 		newPosition := CratePosition{
 			position: currentposition,
 			char:     crate[1]}
-		result = utils.AppendSlice(result, newPosition)
+		result = append(result, newPosition)
 		currentposition += 1
 	}
 	return result

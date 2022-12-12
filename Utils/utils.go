@@ -15,22 +15,9 @@ func ReadFile(location string) []string {
 	scanner := bufio.NewScanner(f)
 	var content []string
 	for scanner.Scan() {
-		content = AppendSlice(content, scanner.Text())
+		content = append(content, scanner.Text())
 	}
 	return content
-}
-
-func AppendSlice[K any](slice []K, data K) []K {
-	m := len(slice)
-	n := m + 1
-	if n > cap(slice) {
-		newSlice := make([]K, n)
-		copy(newSlice, slice)
-		slice = newSlice
-	}
-	slice = slice[0:n]
-	slice[m] = data
-	return slice
 }
 
 func Contains[K comparable](slice []K, item K) bool {

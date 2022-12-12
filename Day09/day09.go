@@ -30,7 +30,7 @@ func Assignment1(input []string) {
 			tail = taildir(tail)
 			newcord := makeCordString(tail.x, tail.y)
 			if !utils.Contains(visited, newcord) {
-				visited = utils.AppendSlice(visited, newcord)
+				visited = append(visited, newcord)
 			}
 		}
 	}
@@ -39,7 +39,6 @@ func Assignment1(input []string) {
 
 func Assignment2(input []string) {
 	knots := make([]knot, 10)
-	fmt.Println(knots)
 	var visited []string
 	for _, line := range input {
 		amount, _ := strconv.ParseInt(string(line[2:]), 0, 64)
@@ -53,7 +52,7 @@ func Assignment2(input []string) {
 			}
 			newcord := makeCordString(knots[9].x, knots[9].y)
 			if !utils.Contains(visited, newcord) {
-				visited = utils.AppendSlice(visited, newcord)
+				visited = append(visited, newcord)
 			}
 		}
 	}

@@ -32,14 +32,14 @@ func Assignment1(input []string) {
 				newval := monkey.operation(item)
 				monkeys[j].inspections++
 				newval /= 3
-				monkeys[monkey.test(newval)].items = utils.AppendSlice(monkeys[monkey.test(newval)].items, newval)
+				monkeys[monkey.test(newval)].items = append(monkeys[monkey.test(newval)].items, newval)
 			}
 			monkeys[j].items = make([]int, 0)
 		}
 	}
 	inspections := make([]int, 0)
 	for _, monkey := range monkeys {
-		inspections = utils.AppendSlice(inspections, monkey.inspections)
+		inspections = append(inspections, monkey.inspections)
 	}
 	sort.Ints(inspections)
 	fmt.Println(inspections[len(inspections)-1] * inspections[len(inspections)-2])
@@ -54,14 +54,14 @@ func Assignment2(input []string) {
 				newval := monkey.operation(item)
 				newval %= alltests
 				monkeys[j].inspections++
-				monkeys[monkey.test(newval)].items = utils.AppendSlice(monkeys[monkey.test(newval)].items, newval)
+				monkeys[monkey.test(newval)].items = append(monkeys[monkey.test(newval)].items, newval)
 			}
 			monkeys[j].items = make([]int, 0)
 		}
 	}
 	inspections := make([]int, 0)
 	for _, monkey := range monkeys {
-		inspections = utils.AppendSlice(inspections, monkey.inspections)
+		inspections = append(inspections, monkey.inspections)
 	}
 	sort.Ints(inspections)
 	fmt.Println(inspections[len(inspections)-1] * inspections[len(inspections)-2])
@@ -80,7 +80,7 @@ func createMonkeys(input []string) []Monkey {
 			operation = nil
 			test = nil
 			items = nil
-			monkeys = utils.AppendSlice(monkeys, monkey)
+			monkeys = append(monkeys, monkey)
 		} else if line[0] == 'M' {
 			num, _ := strconv.ParseInt(line[7:8], 0, 64)
 			id = int(num)
@@ -91,7 +91,7 @@ func createMonkeys(input []string) []Monkey {
 				sitems := parts[2:]
 				for _, item := range sitems {
 					num, _ := strconv.ParseInt(TrimSuffix(item, ","), 0, 64)
-					iitems = utils.AppendSlice(iitems, int(num))
+					iitems = append(iitems, int(num))
 				}
 				items = iitems
 			} else if parts[0] == "Operation:" {
@@ -112,7 +112,7 @@ func createMonkeys(input []string) []Monkey {
 		}
 	}
 	monkey := Monkey{id: id, test: test, operation: operation, items: items}
-	monkeys = utils.AppendSlice(monkeys, monkey)
+	monkeys = append(monkeys, monkey)
 	return monkeys
 }
 

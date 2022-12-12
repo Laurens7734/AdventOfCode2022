@@ -79,7 +79,7 @@ func createFolderStructure(input []string) {
 					filesize:   0,
 					parrent:    currentfolder.path,
 				}
-				currentfolder.subfolders = utils.AppendSlice(currentfolder.subfolders, newfolder.path)
+				currentfolder.subfolders = append(currentfolder.subfolders, newfolder.path)
 				folders[newfolder.path] = newfolder
 			} else {
 				fsize, _ := strconv.ParseInt(strings.Fields(line)[0], 0, 64)

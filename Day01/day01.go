@@ -1,6 +1,7 @@
 package main
 
 import (
+	"adventofcode2022/utils"
 	"fmt"
 	"strconv"
 )
