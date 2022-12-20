@@ -35,3 +35,11 @@ func Abs(input int) int {
 	}
 	return input
 }
+
+func Max(a, b int) int {
+	if b > a {
+		return b
+	} else {
+		return a
+	}
+}
