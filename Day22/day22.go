@@ -86,9 +86,6 @@ func Assignment2(board [][]int, instructions string) {
 	boardy := 0
 	instructionList := readInstructions(instructions)
 	for i, ins := range instructionList {
-		if i%100 == 0 {
-			fmt.Println("next")
-		}
 		if ins == "L" {
 			direction += 3
 			direction %= 4
